@@ -3,6 +3,8 @@
  */
 package TD.PF.oct;
 
+import java.util.List;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
@@ -10,5 +12,74 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-    }
+  //Q1      
+        Somme<Integer> sommerdeuxEntier
+        = new Somme<Integer>() {
+
+			@Override
+			public Integer somme(Integer arg1, Integer args2) {
+				// TODO Auto-generated method stub
+				return arg1+args2;
+			}
+       
+    };
+    
+    Somme<String> sommerdeuxString
+    = new Somme<String>() {
+
+		@Override
+		public String somme(String arg1, String args2) {
+			// TODO Auto-generated method stub
+			return arg1.concat(args2);
+		}
+   
+};
+Somme<Double> sommerdeuxdoubles
+= new Somme<Double>() {
+
+	@Override
+	public Double somme(Double arg1, Double args2) {
+		// TODO Auto-generated method stub
+		return arg1+args2;
+	}
+
+};
+Somme<Long> sommerdeuxlongs
+= new Somme<Long>() {
+
+	@Override
+	public Long somme(Long arg1, Long args2) {
+		// TODO Auto-generated method stub
+		return arg1+args2;
+	}
+
+};
+
+//Q2
+ToString<List<String>> convertirenstring=new ToString<List<String>>() {
+	
+	@Override
+	public String convertir(List<String> arg) {
+		// TODO Auto-generated method stub
+		String texte="";
+		for (String index:arg) {
+			texte=texte+index+", ";
+		}
+		return texte;
+			}
+};
+
+
+/*Q3
+ Function: Convertie (map) un type vers un autre. Lambda avec une variable
+Stockage de lambda expression : signature (T)  R
+
+Predicate: Tests l’argument selon un critère et renvoie vrai ou faux. Stockage Lambda expression : signature (T)  boolean
+
+Consumer : Consume une entrée et ne retourne rien Stockage Lambda expression : signature (T)  void
+
+Supplier : Générer une sortie Stockage Lambda expression : signature ()  T
+ */
+
+}
 }
