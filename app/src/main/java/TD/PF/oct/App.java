@@ -4,6 +4,9 @@
 package TD.PF.oct;
 
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
 
 public class App {
     public String getGreeting() {
@@ -82,4 +85,14 @@ Supplier : Générer une sortie Stockage Lambda expression : signature ()  T
  */
 
 }
+    
+    Predicate<Integer> tailleTropPetite =(s) -> s<100;
+    Predicate<Integer> tailleTropGrande =(s) -> s>200;
+    Predicate<Integer> tailleIcorrecte= tailleTropPetite.or(tailleTropGrande);
+    Predicate<Integer> taillecorrecte=tailleIcorrecte.negate();
+    Predicate<Double>poidtroplourd=t->t>150.0;
+    Predicate<Double>poidcorrecte=poidtroplourd.negate();
+    Predicate<Paire<Integer, Double>>accesautorise=
+    		(Paire<Integer,Double>client) ->taillecorrecte.test(client.taille) && poidcorrecte.test(client.poid);
+    
 }
